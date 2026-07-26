@@ -20,7 +20,7 @@ single_nat_gateway = true
 # Add more entries here later (e.g. a "spot" group) with zero code changes.
 node_groups = {
   default = {
-    instance_types = ["t3.medium"]
+    instance_types = ["t3.micro"]
     capacity_type  = "ON_DEMAND"
     min_size       = 1
     max_size       = 3
