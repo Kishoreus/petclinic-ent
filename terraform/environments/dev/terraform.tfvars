@@ -6,9 +6,12 @@
 aws_region      = "us-east-1"
 project_name    = "petclinic"
 cluster_name    = "petclinic-eks"
+<<<<<<< HEAD
 # As of mid-2026, supported EKS versions are 1.33-1.36 (1.33 exits standard
 # support July 29, 2026). Check https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions-standard.html
 # before you apply if this has been sitting a while - AWS drops old versions.
+=======
+>>>>>>> 29b301dfabbf839a19ee8c3f6d499c1d538a844b
 cluster_version = "1.34"
 
 vpc_cidr             = "10.0.0.0/16"

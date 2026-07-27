@@ -54,7 +54,7 @@ variable "node_groups" {
   }))
   default = {
     default = {
-      instance_types = ["t3.medium"]
+      instance_types = ["t3.micro"]
       capacity_type  = "ON_DEMAND"
       min_size       = 1
       max_size       = 3
