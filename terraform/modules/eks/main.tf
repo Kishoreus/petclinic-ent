@@ -19,7 +19,7 @@ module "eks" {
   # access via the modern EKS Access Entries API - see modules/iam, which
   # explicitly grants the CI IAM user admin access to this cluster.
   authentication_mode                         = "API_AND_CONFIG_MAP"
-  enable_cluster_creator_admin_permissions    = true
+  enable_cluster_creator_admin_permissions    = false
 
   eks_managed_node_groups = {
     for name, ng in var.node_groups : name => {
