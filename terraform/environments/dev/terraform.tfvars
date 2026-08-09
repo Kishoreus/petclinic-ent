@@ -31,7 +31,7 @@ single_nat_gateway = true
 
 node_groups = {
 default = {
-instance_types = ["t3.micro"]
+instance_types = ["m7i.large"]
 capacity_type  = "ON_DEMAND"
 min_size       = 2
 max_size       = 4
