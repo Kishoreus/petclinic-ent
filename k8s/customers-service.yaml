@@ -21,8 +21,8 @@ spec:
           env:
             - name: CONFIG_SERVER_URL
               value: "http://config-server:8888"
-            - name: EUREKA_SERVER_URL
-              value: "http://discovery-server:8761/eureka"
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: "http://discovery-server:8761/eureka/"
           readinessProbe:
             httpGet:
               path: /actuator/health
