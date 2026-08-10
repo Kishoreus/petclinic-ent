@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: config-server
-          image: springcommunity/spring-petclinic-cloud-config:latest
+          image: 972379852441.dkr.ecr.us-east-1.amazonaws.com/petclinic/config-server
           ports:
             - containerPort: 8888
           readinessProbe:
