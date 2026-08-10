@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: discovery-server
-          image: springcommunity/spring-petclinic-discovery-server:latest
+          image: 972379852441.dkr.ecr.us-east-1.amazonaws.com/petclinic/discovery-server
           ports:
             - containerPort: 8761
           env:
