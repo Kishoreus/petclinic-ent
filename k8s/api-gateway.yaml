@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: api-gateway
-          image: 972379852441.dkr.ecr.us-east-1.amazonaws.com/petclinic/api-gateway
+          image: 972379852441.dkr.ecr.us-east-1.amazonaws.com/petclinic/api-gateway:latest
           ports:
             - containerPort: 8080
           env:
