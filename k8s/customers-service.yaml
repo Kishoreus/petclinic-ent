@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: customers-service
-          image: springcommunity/spring-petclinic-customers-service:latest
+          image: 972379852441.dkr.ecr.us-east-1.amazonaws.com/petclinic/customers-service
           ports:
             - containerPort: 8081
           env:
