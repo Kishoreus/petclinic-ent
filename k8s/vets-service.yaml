@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: vets-service
-          image: springcommunity/spring-petclinic-vets-service:latest
+          image: 972379852441.dkr.ecr.us-east-1.amazonaws.com/petclinic/vets-service
           ports:
             - containerPort: 8083
           env:
