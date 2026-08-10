@@ -21,8 +21,10 @@ spec:
           env:
             - name: CONFIG_SERVER_URL
               value: "http://config-server:8888"
-            - name: EUREKA_SERVER_URL
-              value: "http://discovery-server:8761/eureka"
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: "http://discovery-server:8761/eureka/"
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
           resources:
             requests: { cpu: "120m", memory: "250Mi" }
             limits: { cpu: "250m", memory: "400Mi" }
