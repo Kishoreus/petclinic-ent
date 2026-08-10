@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: admin-server
-          image: springcommunity/spring-petclinic-admin-server:latest
+          image: 972379852441.dkr.ecr.us-east-1.amazonaws.com/petclinic/admin-server:latest
           ports:
             - containerPort: 9090
           env:
