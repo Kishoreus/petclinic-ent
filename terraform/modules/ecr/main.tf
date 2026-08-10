@@ -1,6 +1,6 @@
 resource "aws_ecr_repository" "this" {
   for_each = toset(var.repositories)
-
+  force_delete = true
   name                 = "${var.project_name}/${each.key}"
   image_tag_mutability = var.image_tag_mutability
 
