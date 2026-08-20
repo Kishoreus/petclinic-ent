@@ -97,6 +97,22 @@ jobs:
       - name: Notify (workflow summary)
         run: echo "### 🧹 Auto-destroy ran — all PetClinic AWS resources removed to protect free-tier credits." >> $GITHUB_STEP_SUMMARY
 
+      - name: List VPCs
+        run: |
+          aws ec2 describe-vpcs \
+            --query 'Vpcs[*].VpcId' \
+            --output text
+
+      - name: Delete VPCs
+        run: |
+          for vpc in $(aws ec2 describe-vpcs \
+            --query 'Vpcs[*].VpcId' \
+            --output text); do
+
+            echo "Deleting VPC: $vpc"
+            aws ec2 delete-vpc --vpc-id "$vpc" || \
+              echo "Could not delete $vpc - dependencies still exist"        
+
   nothing-to-do:
     needs: check-if-anything-exists
     if: needs.check-if-anything-exists.outputs.cluster_exists == 'false'
