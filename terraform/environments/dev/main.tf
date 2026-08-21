@@ -13,6 +13,11 @@ module "vpc" {
   tags                 = var.tags
 }
 
+module "KP" {
+  source = "../../modules/KP"
+  public_key = var.public_key
+}
+
 module "eks" {
   source = "../../modules/eks"
 
