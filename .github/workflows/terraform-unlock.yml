@@ -1,1 +1,37 @@
+name: force finish
 
+on:
+  workflow_dispatch:
+    inputs:
+      confirm: 
+        description: 'type yes'
+        required: true
+        default: 'yes'
+
+jobs:
+  force-finish:
+    if: github.event.inputs.confirm == 'yes'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.5"
+
+      - name: Terraform Init
+        run: |
+          terraform init \
+            -backend-config="bucket=$TF_STATE_BUCKET" \
+            -backend-config="dynamodb_table=$TF_LOCK_TABLE" \
+            -backend-config="region=$AWS_REGION"
+      - name: Force unlock
+        run: terraform force-unlock -force 6ddc6907-5e36-1a80-a84d-a6f8e4545c7a
