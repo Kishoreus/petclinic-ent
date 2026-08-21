@@ -75,10 +75,12 @@ jobs:
             -backend-config="region=$AWS_REGION"
 
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -input=false -lock-timeout=5m -out=tfplan
+        env:
+          TF_VAR_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -input=false -auto-approve tfplan
         env:
           TF_VAR_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
 
