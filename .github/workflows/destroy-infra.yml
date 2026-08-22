@@ -69,6 +69,10 @@ jobs:
             -backend-config="bucket=$TF_STATE_BUCKET" \
             -backend-config="dynamodb_table=$TF_LOCK_TABLE" \
             -backend-config="region=$AWS_REGION"
+        env:
+          TF_VAR_public_key: ${{ secrets.EC2_PUBLIC_KEY }}    
 
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
+        env:
+          TF_VAR_public_key: ${{ secrets.EC2_PUBLIC_KEY }}            
