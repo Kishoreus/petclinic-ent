@@ -37,6 +37,7 @@ min_size       = 2
 max_size       = 4
 desired_size   = 3
 labels         = { role = "worker" }
+iam_role_additional_policies = { AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore" }
 }
 }
 
