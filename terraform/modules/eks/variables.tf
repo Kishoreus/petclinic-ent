@@ -42,6 +42,7 @@ variable "node_groups" {
     min_size       = number
     max_size       = number
     desired_size   = number
+    ssh_key_name   = optional(string, null)
     labels         = optional(map(string), {})
   }))
   default = {
@@ -51,6 +52,7 @@ variable "node_groups" {
       min_size       = 1
       max_size       = 3
       desired_size   = 2
+      ssh_key_name   = null
       labels         = { role = "worker" }
     }
   }
