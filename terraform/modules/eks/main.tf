@@ -29,6 +29,7 @@ module "eks" {
       instance_types = ng.instance_types
       capacity_type  = ng.capacity_type
       subnet_ids     = var.node_subnet_ids
+      key_name       = ng.ssh_key_name
       labels         = ng.labels
     }
   }
