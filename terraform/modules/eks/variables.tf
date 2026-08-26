@@ -44,6 +44,7 @@ variable "node_groups" {
     desired_size   = number
     ssh_key_name   = optional(string, null)
     labels         = optional(map(string), {})
+    iam_role_additional_policies = optional(map(string), {})
   }))
   default = {
     default = {
