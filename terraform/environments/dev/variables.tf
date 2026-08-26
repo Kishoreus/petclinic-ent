@@ -49,25 +49,30 @@ variable "single_nat_gateway" {
 }
 
 variable "node_groups" {
+  description = "Map of EKS managed node group configs"
   type = map(object({
     instance_types = list(string)
-    capacity_type  = string
+    capacity_type  = string # ON_DEMAND or SPOT
     min_size       = number
     max_size       = number
     desired_size   = number
+    ssh_key_name   = optional(string, null)
     labels         = optional(map(string), {})
+    iam_role_additional_policies = optional(map(string), {})
   }))
   default = {
     default = {
-      instance_types = ["m7i-flex.large"]
+      instance_types = ["m7i-flex.largee"]
       capacity_type  = "ON_DEMAND"
       min_size       = 1
       max_size       = 3
       desired_size   = 2
+      ssh_key_name   = null
       labels         = { role = "worker" }
     }
   }
 }
+
 
 variable "ecr_repositories" {
   type = list(string)
