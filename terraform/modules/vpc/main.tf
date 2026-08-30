@@ -109,7 +109,6 @@ resource "aws_ec2_instance_connect_endpoint" "eks" {
   subnet_id          = aws_subnet.private[0].id
   security_group_ids = [aws_security_group.eice.id]
 
-  ip_address_type = "ipv4"
 
   tags = merge(var.tags, {
     Name = "${var.project_name}-eice"
