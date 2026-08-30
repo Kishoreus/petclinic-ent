@@ -27,7 +27,7 @@ module "eks" {
   vpc_id          = module.vpc.vpc_id
   subnet_ids      = module.vpc.all_subnet_ids
   node_subnet_ids = module.vpc.private_subnet_ids
-
+  eice_security_group_id = module.vpc.eice_security_group_id
   node_groups = var.node_groups
   tags        = var.tags
 }
