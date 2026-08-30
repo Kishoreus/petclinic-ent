@@ -90,6 +90,15 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
+resource "aws_security_group" "eice" {
+  name        = "${var.project_name}-eice-sg"
+  description = "Security group for EC2 Instance Connect Endpoint"
+  vpc_id      = aws_vpc.main.id
+
+  tags = merge(var.tags, {
+    Name = "${var.project_name}-eice-sg"
+  })
+}
 resource "aws_route_table_association" "private" {
   count          = length(aws_subnet.private)
   subnet_id      = aws_subnet.private[count.index].id
