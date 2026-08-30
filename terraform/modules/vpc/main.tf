@@ -94,6 +94,14 @@ resource "aws_security_group" "eice" {
   name        = "${var.project_name}-eice-sg"
   description = "Security group for EC2 Instance Connect Endpoint"
   vpc_id      = aws_vpc.main.id
+  egress {
+    description = "Allow SSH to EKS worker nodes"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+
+    cidr_blocks = [var.vpc_cidr]
+  }
 
   tags = merge(var.tags, {
     Name = "${var.project_name}-eice-sg"
