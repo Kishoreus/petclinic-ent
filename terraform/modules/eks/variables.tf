@@ -48,7 +48,7 @@ variable "node_groups" {
   }))
   default = {
     default = {
-      instance_types = ["m7i-flex.largee"]
+      instance_types = ["m7i-flex.large"]
       capacity_type  = "ON_DEMAND"
       min_size       = 1
       max_size       = 3
