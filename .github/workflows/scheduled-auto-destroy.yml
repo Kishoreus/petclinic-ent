@@ -116,6 +116,7 @@ jobs:
             echo "Deleting VPC: $vpc"
             aws ec2 delete-vpc --vpc-id "$vpc" || \
               echo "Could not delete $vpc - dependencies still exist" 
+          done
               
   nothing-to-do:
     needs: check-if-anything-exists
